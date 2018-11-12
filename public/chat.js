@@ -13,11 +13,11 @@ $(function(){
 
 	//Emit message
 	send_message.click(function(){
-		socket.emit('new_message', {message : message.val()})
+		socket.emit('new_message', {message : message.val()});
 	})
 
 	//Listen on new_message
-	socket.on("new_message", (data) => {
+	socket.on("new_message", function(data) {
 		feedback.html('');
 		message.val('');
 		chatroom.append("<p class='message'>" + data.username + ": " + data.message + "</p>")
@@ -25,18 +25,23 @@ $(function(){
 
 	//Emit a username
 	send_username.click(function(){
-		socket.emit('change_username', {username : username.val()})
+		socket.emit('change_username', {username : username.val()
+		});
+
 	})
 
 	//Emit typing
-	message.bind("keypress", () => {
+	message.bind("keypress", function() {
 		socket.emit('typing')
 	})
 
 	//Listen on typing
-	socket.on('typing', (data) => {
+	socket.on('typing', function(data) {
+	    //implement that username is required before message
+	    //if(data.username)
 		feedback.html("<p><i>" + data.username + " is typing a message..." + "</i></p>")
 	})
+
 });
 
 
