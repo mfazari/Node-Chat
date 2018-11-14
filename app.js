@@ -9,9 +9,14 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
 
-//routes
+//Room 1
 app.get('/', (req, res) => {
 	res.render('index')
+});
+
+//Room 2
+app.get('/1', (req, res) => {
+    res.render('index')
 });
 
 //Listen on port 3000
@@ -48,7 +53,7 @@ io.on('connection', function(socket) {
     });
 
     socket.on('disconnect', function(data) {
-        console.log("User disonnected");
+        console.log("User " + socket.username + " disconnected");
         io.sockets.emit('disconnect', {username : socket.username});
     });
 
