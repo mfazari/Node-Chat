@@ -62,9 +62,7 @@ $(function(){
 	});
 
 
-
-
-	//rooms
+	//Choose a room
     room_1.click(function(){
         socket.emit('join', 'room1');
         current_room = room_1;
@@ -78,6 +76,21 @@ $(function(){
     room_3.click(function(){
         socket.emit('join', 'room3');
         current_room = room_3;
+    });
+
+
+
+
+    //Send message listens to enter
+    var input = document.getElementById("message");
+    input.addEventListener("keyup", function(event) {
+        // Cancel the default action, if needed
+        event.preventDefault();
+        // Number 13 is the "Enter" key on the keyboard
+        if (event.keyCode === 13) {
+            // Trigger the button element with a click
+            document.getElementById("send_message").click();
+        }
     });
 
 });
