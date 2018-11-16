@@ -10,10 +10,21 @@ $(function(){
 	var chatroom = $("#chatroom");
 	var feedback = $("#feedback");
 
+	//rooms
+    var room_1 = $("#room1");
+    var room_2 = $("#room2");
+    var room_3 = $("#room3");
+    var current_room;   //Gives status
+
+
+    //Connected at beginning to default room (Room 1)
+    socket.emit('join', 'room1');
+    current_room = room_1;
+
 
 	//Emit message
 	send_message.click(function(){
-		socket.emit('new_message', {message : message.val()});
+		socket.emit('new_message', {message : message.val(), current_room: current_room});
 	});
 
 	//Listen on new_message
@@ -28,14 +39,14 @@ $(function(){
 
 	//Emit a username
 	send_username.click(function(){
-		socket.emit('change_username', {username : username.val()
+		socket.emit('change_username', {username : username.val(), current_room: current_room
 		});
 
 	});
 
 	//Emit event typing
 	message.bind("keypress", function() {
-		socket.emit('typing'); //emit event
+		socket.emit('typing',{current_room: current_room}); //emit event
 	});
 
 	//Listen on event typing
@@ -52,12 +63,23 @@ $(function(){
 	});
 
 
-	//room
-    $("#room2").click(function(){
-        console.log("clicked");
-        socket.emit('join', 'room');
+
+
+	//rooms
+    room_1.click(function(){
+        socket.emit('join', 'room1');
+        current_room = room_1;
     });
 
+    room_2.click(function(){
+        socket.emit('join', 'room2');
+        current_room = room_2;
+    });
+
+    room_3.click(function(){
+        socket.emit('join', 'room3');
+        current_room = room_3;
+    });
 
 });
 
