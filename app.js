@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-
+var path = require('path');
 
 //room
 var room;
@@ -12,20 +12,14 @@ app.set('view engine', 'ejs');
 //middlewares
 app.use(express.static('public'));
 
-
-//Room 1
+//
 app.get('/', (req, res) => {
 	res.render('index')
 });
 
-//Room 2
-app.get('/1', (req, res) => {
-    res.render('index')
-});
 
 //Listen on port 3000
 server = app.listen(3000);
-
 
 
 //socket.io instantiation
@@ -42,13 +36,20 @@ io.on('connection', function(socket) {
     //listen on change_username
     socket.on('change_username', function(data) {
         socket.username = data.username;
+        console.log("username changed");
     });
 
     //listen on new_message
     socket.on('new_message', function(data){
         //broadcast the new message to all clients in certain room
         room = data.current_room;
-        io.sockets.in(room).emit('new_message', {message : data.message, username : socket.username});
+
+        // work on this part below
+
+        io.sockets.emit('new_message', {message : data.message, username : socket.username});
+
+        //work on this part above
+        console.log(data.message);
     });
 
     //listen on typing

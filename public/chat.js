@@ -29,18 +29,17 @@ $(function(){
 
 	//Listen on new_message
 	socket.on("new_message", function(data) {
-        //sets feedback back to 0 aka message was sent
-		feedback.html('');
-		//sets value back to 0 aka message was sent
-		message.val('');
-		// Adds HTML/EJS code to end of referred ID. In this case "chatroom"
-		chatroom.append("<p class='message'>" + data.username + ": " + data.message + "</p>")
+            //sets feedback back to 0 aka message was sent
+            feedback.html('');
+            //sets value back to 0 aka message was sent
+            message.val('');
+            // Adds HTML/EJS code to end of referred ID. In this case "chatroom"
+            chatroom.append("<p class='message'>" + data.username + ": " + data.message + "</p>")
 	});
 
 	//Emit a username
 	send_username.click(function(){
-		socket.emit('change_username', {username : username.val(), current_room: current_room
-		});
+		socket.emit('change_username', {username : username.val()});
 
 	});
 
@@ -51,8 +50,8 @@ $(function(){
 
 	//Listen on event typing
 	socket.on('typing', function(data) {
-	    //implement that username is required before message
-	    //if(data.username)
+        room = data.current_room;
+        current_room = data.current_room;
 		feedback.html("<p><i>" + data.username + " is typing a message..." + "</i></p>");
 	});
 
