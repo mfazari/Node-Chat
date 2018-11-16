@@ -52,6 +52,8 @@ io.on('connection', function(socket) {
         console.log(data.message);
     });
 
+
+
     //listen on typing
     socket.on('typing', function(data) {
         //broadcast the new message to all clients in room except the one it is being called on
@@ -59,6 +61,8 @@ io.on('connection', function(socket) {
     	socket.broadcast.in(room).emit('typing', {username : socket.username})
     });
 
+
+    //Handle a disconnect
     socket.on('disconnect', function(data) {
         console.log("User " + socket.username + " disconnected");
         io.sockets.in(room).emit('disconnect', {username : socket.username});
