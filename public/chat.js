@@ -52,10 +52,10 @@ $(function(){
 	});
 
 
-
-    //Rooms
-    room2.click(function(){
-        socket.emit('join', room);
+	//room
+    $("#room2").click(function(){
+        console.log("clicked");
+        socket.emit('join', 'room');
     });
 
 
