@@ -11,8 +11,6 @@ $(function(){
 	var feedback = $("#feedback");
 
 
-
-
 	//Emit message
 	send_message.click(function(){
 		socket.emit('new_message', {message : message.val()});
@@ -52,6 +50,14 @@ $(function(){
         feedback.html('');
         chatroom.append("<p class='message'>" + data.username + " " + "HAS LEFT ROOM" + "</p>")
 	});
+
+
+
+    //Rooms
+    room2.click(function(){
+        socket.emit('join', room);
+    });
+
 
 });
 

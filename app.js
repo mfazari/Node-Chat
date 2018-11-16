@@ -57,4 +57,13 @@ io.on('connection', function(socket) {
         io.sockets.emit('disconnect', {username : socket.username});
     });
 
+
+    //Chat
+    // listen for a custom event from the client and join that room
+    socket.on('join', function() {
+        var room = `room${num}`;
+        socket.join(room);
+        console.log("room");
+        });
+
 });
