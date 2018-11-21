@@ -71,6 +71,7 @@ io.on('connection', function(socket) {
     //Chat
     // listen for a custom event from the client and join that room
     socket.on('join', function(room) {
+        socket.leave(room);
         socket.join(room);
         console.log("connected to " + room);
         });
