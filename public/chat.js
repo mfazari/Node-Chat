@@ -17,15 +17,21 @@ $(function(){
     var current_room;   //Gives status
 
 
-    //Connected at beginning to default room (Room 1)
+    //Connected at beginning to default room (Room1)
     socket.emit('join', 'room1');
-    current_room = room_1;
+    current_room = 'room1';
 
 
 	//Emit message
 	send_message.click(function(){
 		socket.emit('new_message', {message : message.val(), current_room: current_room});
 	});
+
+    //Emit event typing
+    message.bind("keypress", function() {
+        socket.emit('typing',{current_room: current_room}); //emit event
+    });
+
 
 	//Listen on new_message
 	socket.on("new_message", function(data) {
@@ -37,23 +43,20 @@ $(function(){
             chatroom.append("<p class='message'>" + data.username + ": " + data.message + "</p>")
 	});
 
+
 	//Emit a username
 	send_username.click(function(){
 		socket.emit('change_username', {username : username.val()});
 
 	});
 
-	//Emit event typing
-	message.bind("keypress", function() {
-		socket.emit('typing',{current_room: current_room}); //emit event
-	});
 
 	//Listen on event typing
 	socket.on('typing', function(data) {
-        room = data.current_room;
-        current_room = data.current_room;
 		feedback.html("<p><i>" + data.username + " is typing a message..." + "</i></p>");
 	});
+
+
 
 	//handle a disconnect
 	socket.on('disconnect', function(data){
@@ -62,20 +65,25 @@ $(function(){
 	});
 
 
+
+
+
+
+
 	//Choose a room
     room_1.click(function(){
         socket.emit('join', 'room1');
-        current_room = room_1;
+        current_room = 'room1';
     });
 
     room_2.click(function(){
         socket.emit('join', 'room2');
-        current_room = room_2;
+        current_room = 'room2';
     });
 
     room_3.click(function(){
         socket.emit('join', 'room3');
-        current_room = room_3;
+        current_room = 'room3';
     });
 
 
