@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a435f67f-5091-47c1-bd8f-03becd3dc395" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -19,8 +18,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="547">
-              <caret line="73" column="25" selection-start-line="73" selection-start-column="25" selection-end-line="73" selection-end-column="25" />
+            <state relative-caret-position="236">
+              <caret line="59" column="29" selection-start-line="59" selection-start-column="29" selection-end-line="59" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -28,8 +27,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/chat.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="445">
-              <caret line="83" column="28" selection-start-line="83" selection-start-column="28" selection-end-line="83" selection-end-column="28" />
+            <state relative-caret-position="298">
+              <caret line="79" column="27" selection-start-line="79" selection-start-column="27" selection-end-line="79" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -55,7 +54,6 @@
       <find>connection</find>
       <find>send</find>
       <find>message</find>
-      <find>room</find>
       <find>room2</find>
       <find>send_un</find>
       <find>new_messa</find>
@@ -68,6 +66,7 @@
       <find>bl</find>
       <find>wri</find>
       <find>send_mess</find>
+      <find>room</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -84,8 +83,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
-    <option name="width" value="991" />
+    <option name="y" value="22" />
+    <option name="width" value="840" />
     <option name="height" value="1024" />
   </component>
   <component name="ProjectView">
@@ -170,18 +169,18 @@
       <workItem from="1542494917794" duration="195000" />
       <workItem from="1542716803728" duration="105000" />
       <workItem from="1542716946831" duration="859000" />
-      <workItem from="1542757466533" duration="4817000" />
+      <workItem from="1542757466533" duration="5734000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="59654000" />
+    <option name="totallyTimeSpent" value="60571000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="991" height="1024" extended-state="0" />
+    <frame x="0" y="22" width="840" height="1024" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12783505" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15140416" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -233,15 +232,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/chat.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="445">
-          <caret line="83" column="28" selection-start-line="83" selection-start-column="28" selection-end-line="83" selection-end-column="28" />
+        <state relative-caret-position="298">
+          <caret line="79" column="27" selection-start-line="79" selection-start-column="27" selection-end-line="79" selection-end-column="27" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="547">
-          <caret line="73" column="25" selection-start-line="73" selection-start-column="25" selection-end-line="73" selection-end-column="25" />
+        <state relative-caret-position="236">
+          <caret line="59" column="29" selection-start-line="59" selection-start-column="29" selection-end-line="59" selection-end-column="29" />
         </state>
       </provider>
     </entry>

@@ -3,7 +3,7 @@ const app = express();
 var path = require('path');
 
 //room
-var room;
+var currentroom;
 
 
 //set the template engine ejs
@@ -42,10 +42,10 @@ io.on('connection', function(socket) {
     //listen on new_message
     socket.on('new_message', function(data){
         //broadcast the new message to all clients in certain room
-        room = data.current_room;
+        currentroom = data.current_room;
         // work on this part below
 
-        io.sockets.in(room).emit('new_message', {message : data.message, username : socket.username});
+        io.sockets.in(currentroom).emit('new_message', {message : data.message, username : socket.username});
         //work on this part above
         console.log(data.message);
     });
@@ -55,23 +55,23 @@ io.on('connection', function(socket) {
     //listen on typing
     socket.on('typing', function(data) {
         //broadcast the new message to all clients in room except the one it is being called on
-        room = data.current_room;
-        console.log(room);
-    	socket.broadcast.in(room).emit('typing', {username : socket.username})
+        currentroom = data.current_room;
+        console.log(currentroom);
+    	socket.in(currentroom).emit('typing', {username : socket.username})
     });
 
 
     //Handle a disconnect
     socket.on('disconnect', function(data) {
         console.log("User " + socket.username + " disconnected");
-        io.sockets.in(room).emit('disconnect', {username : socket.username});
+        io.sockets.in(currentroom).emit('disconnect', {username : socket.username});
     });
 
 
     //Chat
     // listen for a custom event from the client and join that room
     socket.on('join', function(room) {
-        socket.leave(room);
+        socket.leave();
         socket.join(room);
         console.log("connected to " + room);
         });
